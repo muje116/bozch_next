@@ -90,7 +90,7 @@ export default async function ProgramsPage() {
             className="absolute inset-0 z-0"
             style={{
               backgroundImage:
-                "url(/placeholder.svg?height=400&width=1200&query=african+sustainable+development+programs)",
+                "url(/placeholder.png)",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

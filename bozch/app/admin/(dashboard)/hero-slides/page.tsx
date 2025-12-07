@@ -251,7 +251,7 @@ export default function HeroSlidesPage() {
                     </div>
                     <div className="h-16 w-24 rounded-md overflow-hidden bg-muted shrink-0">
                       <img
-                        src={slide.image_url || "/placeholder.svg"}
+                        src={slide.image_url || "/placeholder.png"}
                         alt={slide.title}
                         className="h-full w-full object-cover"
                       />

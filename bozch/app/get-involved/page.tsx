@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Heart, Users, Handshake } from "lucide-react"
 import { useState } from "react"
+import { useToast } from "@/hooks/use-toast"
 
 export default function GetInvolvedPage() {
   const [formData, setFormData] = useState({
@@ -20,12 +21,44 @@ export default function GetInvolvedPage() {
     interest: "",
     message: "",
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const { toast } = useToast()
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formData)
-    alert("Thank you for your interest! We will contact you soon.")
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch("/api/interest-submissions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        toast({
+          title: "Thank you for your interest!",
+          description: "We will contact you soon.",
+        })
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          interest: "",
+          message: "",
+        })
+      } else {
+        throw new Error("Failed to submit interest")
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to submit your interest. Please try again later.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -220,8 +253,8 @@ export default function GetInvolvedPage() {
                       />
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full text-base">
-                      Submit
+                    <Button type="submit" size="lg" className="w-full text-base" disabled={isSubmitting}>
+                      {isSubmitting ? "Submitting..." : "Submit"}
                     </Button>
                   </form>
                 </CardContent>

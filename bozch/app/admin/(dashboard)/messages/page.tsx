@@ -6,13 +6,27 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog"
 import { Trash2, Mail, MailOpen, Eye } from "lucide-react"
 import type { ContactSubmission } from "@/lib/db"
+import { useToast } from "@/hooks/use-toast"
 
 export default function MessagesPage() {
   const [messages, setMessages] = useState<ContactSubmission[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [selectedMessage, setSelectedMessage] = useState<ContactSubmission | null>(null)
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
+  const [messageToDelete, setMessageToDelete] = useState<number | null>(null)
+  const { toast } = useToast()
 
   const fetchMessages = async () => {
     try {
@@ -41,25 +55,51 @@ export default function MessagesPage() {
       })
       if (response.ok) {
         fetchMessages()
+        toast({
+          title: "Success",
+          description: isRead ? "Marked as read" : "Marked as unread",
+        })
       }
     } catch (error) {
       console.error("Error updating message:", error)
+      toast({
+        title: "Error",
+        description: "Failed to update message",
+        variant: "destructive",
+      })
     }
   }
 
-  const handleDelete = async (id: number) => {
-    if (!confirm("Are you sure you want to delete this message?")) return
+  const handleDeleteClick = (id: number) => {
+    setMessageToDelete(id)
+    setDeleteDialogOpen(true)
+  }
+
+  const handleDeleteConfirm = async () => {
+    if (!messageToDelete) return
 
     try {
-      const response = await fetch(`/api/admin/contact-submissions/${id}`, { method: "DELETE" })
+      const response = await fetch(`/api/admin/contact-submissions/${messageToDelete}`, { method: "DELETE" })
       if (response.ok) {
         fetchMessages()
-        if (selectedMessage?.id === id) {
+        if (selectedMessage?.id === messageToDelete) {
           setSelectedMessage(null)
         }
+        toast({
+          title: "Success",
+          description: "Message deleted successfully",
+        })
       }
     } catch (error) {
       console.error("Error deleting message:", error)
+      toast({
+        title: "Error",
+        description: "Failed to delete message",
+        variant: "destructive",
+      })
+    } finally {
+      setDeleteDialogOpen(false)
+      setMessageToDelete(null)
     }
   }
 
@@ -133,7 +173,7 @@ export default function MessagesPage() {
                         variant="ghost"
                         size="icon"
                         className="h-8 w-8 text-destructive"
-                        onClick={() => handleDelete(message.id)}
+                        onClick={() => handleDeleteClick(message.id)}
                       >
                         <Trash2 className="h-4 w-4" />
                       </Button>
@@ -162,14 +202,32 @@ export default function MessagesPage() {
                 <Button variant="outline" asChild>
                   <a href={`mailto:${selectedMessage?.email}`}>Reply via Email</a>
                 </Button>
-                <Button variant="destructive" onClick={() => selectedMessage && handleDelete(selectedMessage.id)}>
+                <Button variant="destructive" onClick={() => selectedMessage && handleDeleteClick(selectedMessage.id)}>
                   Delete
                 </Button>
               </div>
             </div>
           </DialogContent>
         </Dialog>
+
+        <AlertDialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+              <AlertDialogDescription>
+                This action cannot be undone. This will permanently delete this message.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction onClick={handleDeleteConfirm} className="bg-destructive text-destructive-foreground hover:bg-destructive/90">
+                Delete
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </div>
     </div>
   )
 }
+

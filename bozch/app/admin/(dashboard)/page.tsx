@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { AdminHeader } from "@/components/admin/admin-header"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ImageIcon, FolderKanban, Users, Calendar, MessageSquare, Mail, ArrowUpRight, Eye } from "lucide-react"
+import { ImageIcon, FolderKanban, Users, Calendar, MessageSquare, Mail, ArrowUpRight, Eye, UserPlus } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -15,6 +15,7 @@ interface DashboardData {
     teamMembers: number
     milestones: number
     unreadMessages: number
+    unreadInterests: number
     subscribers: number
   }
   recentMessages: Array<{
@@ -84,6 +85,13 @@ export default function AdminDashboardPage() {
       icon: MessageSquare,
       href: "/admin/messages",
       color: "text-rose-500 bg-rose-500/10",
+    },
+    {
+      label: "Interest Submissions",
+      value: data?.stats.unreadInterests || 0,
+      icon: UserPlus,
+      href: "/admin/interest-submissions",
+      color: "text-orange-500 bg-orange-500/10",
     },
     {
       label: "Subscribers",

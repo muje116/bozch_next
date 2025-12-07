@@ -19,8 +19,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Plus, Pencil, Trash2, Loader2, User } from "lucide-react"
+import { Plus, Pencil, Trash2, Loader2, User, Upload } from "lucide-react"
 import type { TeamMember } from "@/lib/db"
+import { useToast } from "@/hooks/use-toast"
 
 export default function TeamMembersPage() {
   const [members, setMembers] = useState<TeamMember[]>([])
@@ -28,6 +29,7 @@ export default function TeamMembersPage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [editingMember, setEditingMember] = useState<TeamMember | null>(null)
   const [isSaving, setIsSaving] = useState(false)
+  const [isUploading, setIsUploading] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     role: "",
@@ -38,6 +40,7 @@ export default function TeamMembersPage() {
     display_order: 0,
     is_active: true,
   })
+  const { toast } = useToast()
 
   const fetchMembers = async () => {
     try {
@@ -56,6 +59,45 @@ export default function TeamMembersPage() {
   useEffect(() => {
     fetchMembers()
   }, [])
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    setIsUploading(true)
+    try {
+      const uploadFormData = new FormData()
+      uploadFormData.append("file", file)
+
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: uploadFormData,
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        setFormData({ ...formData, image_url: data.url })
+        toast({
+          title: "Success",
+          description: "Image uploaded successfully",
+        })
+      } else {
+        const error = await response.json()
+        throw new Error(error.error || "Upload failed")
+      }
+    } catch (error: any) {
+      console.error("Error uploading file:", error)
+      toast({
+        title: "Error",
+        description: error.message || "Failed to upload image",
+        variant: "destructive",
+      })
+    } finally {
+      setIsUploading(false)
+      // Reset file input
+      e.target.value = ""
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -76,9 +118,20 @@ export default function TeamMembersPage() {
         setEditingMember(null)
         resetForm()
         fetchMembers()
+        toast({
+          title: "Success",
+          description: editingMember ? "Team member updated successfully" : "Team member added successfully",
+        })
+      } else {
+        throw new Error("Failed to save team member")
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error saving team member:", error)
+      toast({
+        title: "Error",
+        description: error.message || "Failed to save team member",
+        variant: "destructive",
+      })
     } finally {
       setIsSaving(false)
     }
@@ -91,9 +144,20 @@ export default function TeamMembersPage() {
       const response = await fetch(`/api/admin/team-members/${id}`, { method: "DELETE" })
       if (response.ok) {
         fetchMembers()
+        toast({
+          title: "Success",
+          description: "Team member deleted successfully",
+        })
+      } else {
+        throw new Error("Failed to delete team member")
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error deleting team member:", error)
+      toast({
+        title: "Error",
+        description: error.message || "Failed to delete team member",
+        variant: "destructive",
+      })
     }
   }
 
@@ -183,13 +247,42 @@ export default function TeamMembersPage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="image_url">Photo URL</Label>
-                  <Input
-                    id="image_url"
-                    value={formData.image_url}
-                    onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
-                    placeholder="/images/team/member.jpg"
-                  />
+                  <Label htmlFor="image_url">Photo</Label>
+                  <div className="flex gap-2">
+                    <Input
+                      id="image_url"
+                      value={formData.image_url}
+                      onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
+                      placeholder="/uploads/team/member.jpg or URL"
+                    />
+                    <label htmlFor="file-upload" className="cursor-pointer">
+                      <Button type="button" variant="outline" disabled={isUploading} asChild>
+                        <span>
+                          <Upload className="h-4 w-4 mr-2" />
+                          {isUploading ? "Uploading..." : "Upload"}
+                        </span>
+                      </Button>
+                      <input
+                        id="file-upload"
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={handleFileUpload}
+                      />
+                    </label>
+                  </div>
+                  {formData.image_url && (
+                    <div className="mt-2">
+                      <img
+                        src={formData.image_url}
+                        alt="Preview"
+                        className="h-20 w-20 rounded-full object-cover border-2"
+                        onError={(e) => {
+                          e.currentTarget.style.display = "none"
+                        }}
+                      />
+                    </div>
+                  )}
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
@@ -271,7 +364,7 @@ export default function TeamMembersPage() {
                   <div className="mx-auto h-20 w-20 rounded-full bg-primary/10 flex items-center justify-center mb-4 overflow-hidden">
                     {member.image_url ? (
                       <img
-                        src={member.image_url || "/placeholder.svg"}
+                        src={member.image_url || "/placeholder.png"}
                         alt={member.name}
                         className="h-full w-full object-cover"
                       />

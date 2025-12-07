@@ -1,4 +1,14 @@
 node_modules/
 /node_modules/
 .pnpm/
-./next/
+.next/
+.next
+dist/
+build/
+node_modules/
+bozch/node_modules/
+.pnpm/
+.next/
+bozch/.next
+dist/
+build/

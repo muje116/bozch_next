@@ -110,6 +110,18 @@ CREATE TABLE IF NOT EXISTS contact_submissions (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Interest submissions (from get-involved page)
+CREATE TABLE IF NOT EXISTS interest_submissions (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  phone VARCHAR(50),
+  interest VARCHAR(255) NOT NULL,
+  message TEXT NOT NULL,
+  is_read BOOLEAN DEFAULT false,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Newsletter subscribers
 CREATE TABLE IF NOT EXISTS newsletter_subscribers (
   id INT AUTO_INCREMENT PRIMARY KEY,

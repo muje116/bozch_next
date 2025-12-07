@@ -81,7 +81,7 @@ export default async function AboutPage() {
           <div
             className="absolute inset-0 z-0"
             style={{
-              backgroundImage: "url(/placeholder.svg?height=400&width=1200&query=african+community+gathering+meeting)",
+              backgroundImage: "url(/placeholder.png)",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -222,7 +222,7 @@ export default async function AboutPage() {
                           <div className="h-20 w-20 rounded-full bg-primary/10 flex items-center justify-center mb-4 overflow-hidden">
                             {member.image_url ? (
                               <img
-                                src={member.image_url || "/placeholder.svg"}
+                                src={member.image_url || "/placeholder.png"}
                                 alt={member.name}
                                 className="h-full w-full object-cover"
                               />

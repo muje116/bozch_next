@@ -16,6 +16,7 @@ import {
   Leaf,
   ChevronLeft,
   ChevronRight,
+  UserPlus,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
@@ -29,6 +30,7 @@ const navItems = [
   { href: "/admin/team", label: "Team Members", icon: Users },
   { href: "/admin/milestones", label: "Milestones", icon: Calendar },
   { href: "/admin/messages", label: "Messages", icon: MessageSquare },
+  { href: "/admin/interest-submissions", label: "Interest Submissions", icon: UserPlus },
   { href: "/admin/settings", label: "Settings", icon: Settings },
 ]
 

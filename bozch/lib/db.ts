@@ -127,6 +127,17 @@ export interface ContactSubmission {
   created_at: Date
 }
 
+export interface InterestSubmission {
+  id: number
+  name: string
+  email: string
+  phone: string
+  interest: string
+  message: string
+  is_read: boolean
+  created_at: Date
+}
+
 export interface NewsletterSubscriber {
   id: number
   email: string

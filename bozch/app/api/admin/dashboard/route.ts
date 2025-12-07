@@ -9,12 +9,13 @@ export async function GET() {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
-    const [slidesCount, programsCount, teamCount, milestonesCount, unreadMessages, subscribers] = await Promise.all([
+    const [slidesCount, programsCount, teamCount, milestonesCount, unreadMessages, unreadInterests, subscribers] = await Promise.all([
       sql("SELECT COUNT(*) as count FROM hero_slides WHERE is_active = true", []),
       sql("SELECT COUNT(*) as count FROM programs WHERE is_active = true", []),
       sql("SELECT COUNT(*) as count FROM team_members WHERE is_active = true", []),
       sql("SELECT COUNT(*) as count FROM milestones WHERE is_active = true", []),
       sql("SELECT COUNT(*) as count FROM contact_submissions WHERE is_read = false", []),
+      sql("SELECT COUNT(*) as count FROM interest_submissions WHERE is_read = false", []),
       sql("SELECT COUNT(*) as count FROM newsletter_subscribers WHERE is_active = true", []),
     ])
 
@@ -27,6 +28,7 @@ export async function GET() {
         teamMembers: Number((teamCount as any[])[0]?.count || 0),
         milestones: Number((milestonesCount as any[])[0]?.count || 0),
         unreadMessages: Number((unreadMessages as any[])[0]?.count || 0),
+        unreadInterests: Number((unreadInterests as any[])[0]?.count || 0),
         subscribers: Number((subscribers as any[])[0]?.count || 0),
       },
       recentMessages,
