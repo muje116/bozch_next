@@ -1,0 +1,267 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/api/admin/contact-submissions/[id]",
+      "regex": "^/api/admin/contact\\-submissions/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/admin/contact\\-submissions/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/admin/hero-slides/[id]",
+      "regex": "^/api/admin/hero\\-slides/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/admin/hero\\-slides/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/admin/impact-stats/[id]",
+      "regex": "^/api/admin/impact\\-stats/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/admin/impact\\-stats/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/admin/milestones/[id]",
+      "regex": "^/api/admin/milestones/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/admin/milestones/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/admin/programs/[id]",
+      "regex": "^/api/admin/programs/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/admin/programs/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/admin/team-members/[id]",
+      "regex": "^/api/admin/team\\-members/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/admin/team\\-members/(?<nxtPid>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/about",
+      "regex": "^/about(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about(?:/)?$"
+    },
+    {
+      "page": "/admin",
+      "regex": "^/admin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin(?:/)?$"
+    },
+    {
+      "page": "/admin/hero-slides",
+      "regex": "^/admin/hero\\-slides(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/hero\\-slides(?:/)?$"
+    },
+    {
+      "page": "/admin/impact-stats",
+      "regex": "^/admin/impact\\-stats(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/impact\\-stats(?:/)?$"
+    },
+    {
+      "page": "/admin/login",
+      "regex": "^/admin/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/login(?:/)?$"
+    },
+    {
+      "page": "/admin/messages",
+      "regex": "^/admin/messages(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/messages(?:/)?$"
+    },
+    {
+      "page": "/admin/milestones",
+      "regex": "^/admin/milestones(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/milestones(?:/)?$"
+    },
+    {
+      "page": "/admin/programs",
+      "regex": "^/admin/programs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/programs(?:/)?$"
+    },
+    {
+      "page": "/admin/settings",
+      "regex": "^/admin/settings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/settings(?:/)?$"
+    },
+    {
+      "page": "/admin/team",
+      "regex": "^/admin/team(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/team(?:/)?$"
+    },
+    {
+      "page": "/api/admin/auth/login",
+      "regex": "^/api/admin/auth/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/auth/login(?:/)?$"
+    },
+    {
+      "page": "/api/admin/auth/logout",
+      "regex": "^/api/admin/auth/logout(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/auth/logout(?:/)?$"
+    },
+    {
+      "page": "/api/admin/auth/me",
+      "regex": "^/api/admin/auth/me(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/auth/me(?:/)?$"
+    },
+    {
+      "page": "/api/admin/contact-submissions",
+      "regex": "^/api/admin/contact\\-submissions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/contact\\-submissions(?:/)?$"
+    },
+    {
+      "page": "/api/admin/dashboard",
+      "regex": "^/api/admin/dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/dashboard(?:/)?$"
+    },
+    {
+      "page": "/api/admin/hero-slides",
+      "regex": "^/api/admin/hero\\-slides(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/hero\\-slides(?:/)?$"
+    },
+    {
+      "page": "/api/admin/impact-stats",
+      "regex": "^/api/admin/impact\\-stats(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/impact\\-stats(?:/)?$"
+    },
+    {
+      "page": "/api/admin/milestones",
+      "regex": "^/api/admin/milestones(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/milestones(?:/)?$"
+    },
+    {
+      "page": "/api/admin/programs",
+      "regex": "^/api/admin/programs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/programs(?:/)?$"
+    },
+    {
+      "page": "/api/admin/settings",
+      "regex": "^/api/admin/settings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/settings(?:/)?$"
+    },
+    {
+      "page": "/api/admin/team-members",
+      "regex": "^/api/admin/team\\-members(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/team\\-members(?:/)?$"
+    },
+    {
+      "page": "/api/revalidate",
+      "regex": "^/api/revalidate(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/revalidate(?:/)?$"
+    },
+    {
+      "page": "/contact",
+      "regex": "^/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact(?:/)?$"
+    },
+    {
+      "page": "/get-involved",
+      "regex": "^/get\\-involved(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/get\\-involved(?:/)?$"
+    },
+    {
+      "page": "/journey",
+      "regex": "^/journey(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/journey(?:/)?$"
+    },
+    {
+      "page": "/programs",
+      "regex": "^/programs(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/programs(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}
