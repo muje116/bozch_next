@@ -7,7 +7,14 @@
       "static/media/e2334d715941921e-s.p.d82a9aff.woff2",
       "static/media/47fe1b7cd6e6ed85-s.p.855a563b.woff2"
     ],
-    "[project]/app/admin/(dashboard)/interest-submissions/page": [
+    "[project]/app/admin/(dashboard)/hero-slides/page": [
+      "static/media/c875c6f5d3e977ac-s.p.80fc2c9e.woff2",
+      "static/media/a218039a3287bcfd-s.p.4a23d71b.woff2",
+      "static/media/8e6fa89aa22d24ec-s.p.3aec397d.woff2",
+      "static/media/e2334d715941921e-s.p.d82a9aff.woff2",
+      "static/media/47fe1b7cd6e6ed85-s.p.855a563b.woff2"
+    ],
+    "[project]/app/admin/(dashboard)/impact-stats/page": [
       "static/media/c875c6f5d3e977ac-s.p.80fc2c9e.woff2",
       "static/media/a218039a3287bcfd-s.p.4a23d71b.woff2",
       "static/media/8e6fa89aa22d24ec-s.p.3aec397d.woff2",
@@ -21,7 +28,35 @@
       "static/media/e2334d715941921e-s.p.d82a9aff.woff2",
       "static/media/47fe1b7cd6e6ed85-s.p.855a563b.woff2"
     ],
+    "[project]/app/admin/(dashboard)/page": [
+      "static/media/c875c6f5d3e977ac-s.p.80fc2c9e.woff2",
+      "static/media/a218039a3287bcfd-s.p.4a23d71b.woff2",
+      "static/media/8e6fa89aa22d24ec-s.p.3aec397d.woff2",
+      "static/media/e2334d715941921e-s.p.d82a9aff.woff2",
+      "static/media/47fe1b7cd6e6ed85-s.p.855a563b.woff2"
+    ],
+    "[project]/app/admin/(dashboard)/programs/page": [
+      "static/media/c875c6f5d3e977ac-s.p.80fc2c9e.woff2",
+      "static/media/a218039a3287bcfd-s.p.4a23d71b.woff2",
+      "static/media/8e6fa89aa22d24ec-s.p.3aec397d.woff2",
+      "static/media/e2334d715941921e-s.p.d82a9aff.woff2",
+      "static/media/47fe1b7cd6e6ed85-s.p.855a563b.woff2"
+    ],
+    "[project]/app/admin/(dashboard)/settings/page": [
+      "static/media/c875c6f5d3e977ac-s.p.80fc2c9e.woff2",
+      "static/media/a218039a3287bcfd-s.p.4a23d71b.woff2",
+      "static/media/8e6fa89aa22d24ec-s.p.3aec397d.woff2",
+      "static/media/e2334d715941921e-s.p.d82a9aff.woff2",
+      "static/media/47fe1b7cd6e6ed85-s.p.855a563b.woff2"
+    ],
     "[project]/app/admin/(dashboard)/team/page": [
+      "static/media/c875c6f5d3e977ac-s.p.80fc2c9e.woff2",
+      "static/media/a218039a3287bcfd-s.p.4a23d71b.woff2",
+      "static/media/8e6fa89aa22d24ec-s.p.3aec397d.woff2",
+      "static/media/e2334d715941921e-s.p.d82a9aff.woff2",
+      "static/media/47fe1b7cd6e6ed85-s.p.855a563b.woff2"
+    ],
+    "[project]/app/admin/login/page": [
       "static/media/c875c6f5d3e977ac-s.p.80fc2c9e.woff2",
       "static/media/a218039a3287bcfd-s.p.4a23d71b.woff2",
       "static/media/8e6fa89aa22d24ec-s.p.3aec397d.woff2",
@@ -42,14 +77,7 @@
       "static/media/e2334d715941921e-s.p.d82a9aff.woff2",
       "static/media/47fe1b7cd6e6ed85-s.p.855a563b.woff2"
     ],
-    "[project]/app/page": [
-      "static/media/c875c6f5d3e977ac-s.p.80fc2c9e.woff2",
-      "static/media/a218039a3287bcfd-s.p.4a23d71b.woff2",
-      "static/media/8e6fa89aa22d24ec-s.p.3aec397d.woff2",
-      "static/media/e2334d715941921e-s.p.d82a9aff.woff2",
-      "static/media/47fe1b7cd6e6ed85-s.p.855a563b.woff2"
-    ],
-    "[project]/app/programs/page": [
+    "[project]/app/journey/page": [
       "static/media/c875c6f5d3e977ac-s.p.80fc2c9e.woff2",
       "static/media/a218039a3287bcfd-s.p.4a23d71b.woff2",
       "static/media/8e6fa89aa22d24ec-s.p.3aec397d.woff2",

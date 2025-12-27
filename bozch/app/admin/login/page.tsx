@@ -49,7 +49,7 @@ console.log(data);
       <Card className="w-full max-w-md shadow-xl border-2">
         <CardHeader className="text-center pb-2">
           <div className="mx-auto mb-4 h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center">
-            <Leaf className="h-8 w-8 text-primary" />
+            <img src="/final-logo-BOZCH.png" alt="BOZCH Africa" className="h-10 w-10" />
           </div>
           <CardTitle className="text-2xl font-bold">BOZCH Admin</CardTitle>
           <CardDescription>Sign in to manage your website content</CardDescription>

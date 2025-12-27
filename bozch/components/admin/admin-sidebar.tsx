@@ -57,7 +57,7 @@ export function AdminSidebar() {
           {!isCollapsed && (
             <Link href="/admin" className="flex items-center gap-2">
               <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-                <img src="/final logo BOZCH.png" alt="BOZCH Africa" className="h-10 w-10" />
+                <img src="/final-logo-BOZCH.png" alt="BOZCH Africa" className="h-10 w-10" />
                 {/* <Leaf className="h-5 w-5 text-primary-foreground" /> */}
               </div>
               <span className="font-semibold text-sidebar-foreground">BOZCH Admin</span>

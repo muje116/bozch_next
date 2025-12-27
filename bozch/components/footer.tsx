@@ -10,7 +10,7 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-lg">
-                <img src="/final logo BOZCH.png" alt="BOZCH Africa" className="h-10 w-10" />
+                <img src="/final-logo-BOZCH.png" alt="BOZCH Africa" className="h-10 w-10" />
               </div>
               <span className="font-semibold text-lg">BOZCH Africa</span>
             </div>

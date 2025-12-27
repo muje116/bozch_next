@@ -287,12 +287,13 @@ async function GET() {
                 status: 401
             });
         }
-        const [slidesCount, programsCount, teamCount, milestonesCount, unreadMessages, subscribers] = await Promise.all([
+        const [slidesCount, programsCount, teamCount, milestonesCount, unreadMessages, unreadInterests, subscribers] = await Promise.all([
             (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["sql"])("SELECT COUNT(*) as count FROM hero_slides WHERE is_active = true", []),
             (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["sql"])("SELECT COUNT(*) as count FROM programs WHERE is_active = true", []),
             (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["sql"])("SELECT COUNT(*) as count FROM team_members WHERE is_active = true", []),
             (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["sql"])("SELECT COUNT(*) as count FROM milestones WHERE is_active = true", []),
             (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["sql"])("SELECT COUNT(*) as count FROM contact_submissions WHERE is_read = false", []),
+            (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["sql"])("SELECT COUNT(*) as count FROM interest_submissions WHERE is_read = false", []),
             (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["sql"])("SELECT COUNT(*) as count FROM newsletter_subscribers WHERE is_active = true", [])
         ]);
         const recentMessages = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["sql"])("SELECT * FROM contact_submissions ORDER BY created_at DESC LIMIT 5", []);
@@ -303,6 +304,7 @@ async function GET() {
                 teamMembers: Number(teamCount[0]?.count || 0),
                 milestones: Number(milestonesCount[0]?.count || 0),
                 unreadMessages: Number(unreadMessages[0]?.count || 0),
+                unreadInterests: Number(unreadInterests[0]?.count || 0),
                 subscribers: Number(subscribers[0]?.count || 0)
             },
             recentMessages
