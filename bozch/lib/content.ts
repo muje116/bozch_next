@@ -29,7 +29,7 @@ export async function getPrograms() {
 
 export async function getTeamMembers() {
   try {
-    const members = await sql("SELECT * FROM team_members WHERE is_active = true ORDER BY display_order ASC", [])
+    const members = await sql("SELECT * FROM team_members WHERE is_active = true ORDER BY display_order ASC", []) as any[]
     return members
   } catch {
     return []
@@ -38,7 +38,7 @@ export async function getTeamMembers() {
 
 export async function getMilestones() {
   try {
-    const milestones = await sql("SELECT * FROM milestones WHERE is_active = true ORDER BY display_order ASC", [])
+    const milestones = await sql("SELECT * FROM milestones WHERE is_active = true ORDER BY display_order ASC", []) as any[]
     return milestones
   } catch {
     return []
@@ -47,7 +47,7 @@ export async function getMilestones() {
 
 export async function getCoreValues() {
   try {
-    const values = await sql("SELECT * FROM core_values WHERE is_active = true ORDER BY display_order ASC", [])
+    const values = await sql("SELECT * FROM core_values WHERE is_active = true ORDER BY display_order ASC", []) as any[]
     return values
   } catch {
     return []

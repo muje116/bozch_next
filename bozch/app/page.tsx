@@ -135,7 +135,7 @@ export default function HomePage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" variant="secondary" className="text-base">
-                  <Link href="/get-involved">Donate Now</Link>
+                  <Link href="/contact">Donate Now</Link>
                 </Button>
                 <Button
                   asChild

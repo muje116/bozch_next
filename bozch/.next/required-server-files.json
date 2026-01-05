@@ -99,7 +99,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "D:\\Projects\\Websites\\bozch",
+    "outputFileTracingRoot": "D:\\Projects\\Websites\\bozch_next\\bozch",
     "cacheComponents": false,
     "cacheLife": {
       "default": {
@@ -290,11 +290,11 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.mjs",
     "turbopack": {
-      "root": "D:\\Projects\\Websites\\bozch"
+      "root": "D:\\Projects\\Websites\\bozch_next\\bozch"
     },
     "distDirRoot": ".next"
   },
-  "appDir": "D:\\Projects\\Websites\\bozch",
+  "appDir": "D:\\Projects\\Websites\\bozch_next\\bozch",
   "relativeAppDir": "",
   "files": [
     ".next\\routes-manifest.json",

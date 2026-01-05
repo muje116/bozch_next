@@ -1,6 +1,7 @@
 "use client"
 
-import type React from "react"
+import Link from "next/link"
+import React, { useState } from "react"
 
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
@@ -10,7 +11,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Heart, Users, Handshake } from "lucide-react"
-import { useState } from "react"
 import { useToast } from "@/hooks/use-toast"
 
 export default function GetInvolvedPage() {
@@ -79,7 +79,7 @@ export default function GetInvolvedPage() {
             className="absolute inset-0 z-0"
             style={{
               backgroundImage:
-                  "url(/placeholder.png)",
+                "url(/placeholder.png)",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -163,8 +163,8 @@ export default function GetInvolvedPage() {
                       conservation, and sustainable agriculture. We ensure 100% transparency in how funds are used.
                     </p>
                     <div className="pt-4">
-                      <Button size="lg" className="text-base">
-                        Donate via PayPal
+                      <Button asChild size="lg" className="text-base">
+                        <Link href="/contact">Donate Now</Link>
                       </Button>
                       <p className="text-sm text-muted-foreground mt-4">
                         For bank transfers or other payment methods, please contact us

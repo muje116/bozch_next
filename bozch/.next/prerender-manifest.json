@@ -127,6 +127,31 @@
         "x-next-revalidate-tag-token"
       ]
     },
+    "/admin/interest-submissions": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/admin/interest-submissions",
+      "dataRoute": "/admin/interest-submissions.rsc",
+      "prefetchDataRoute": null,
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
     "/admin/messages": {
       "experimentalBypassFor": [
         {
@@ -431,8 +456,8 @@
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "afb96a9062b048d7f173c52441106d54",
-    "previewModeSigningKey": "bf6e97b568fd7ef311d9187a6ae9983ab41cb097003800df98ca40d239570e66",
-    "previewModeEncryptionKey": "d9e6e642e9ba70f05c54340e0e935fd34f33352cf12a3327bdfe58eae6cebff3"
+    "previewModeId": "c9234e067442f2d7030150f3a940e5fb",
+    "previewModeSigningKey": "388affe0505d6d473aba926f8b9f3d896b6a0bcc31b27c64de031944837e348b",
+    "previewModeEncryptionKey": "588fd9dbee1c912d6661db5c0a299d380fafbb0f297734a73acc843300dfed3d"
   }
 }

@@ -45,6 +45,14 @@
       "namedRegex": "^/api/admin/impact\\-stats/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/admin/interest-submissions/[id]",
+      "regex": "^/api/admin/interest\\-submissions/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/admin/interest\\-submissions/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/api/admin/milestones/[id]",
       "regex": "^/api/admin/milestones/([^/]+?)(?:/)?$",
       "routeKeys": {
@@ -111,6 +119,12 @@
       "regex": "^/admin/impact\\-stats(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/admin/impact\\-stats(?:/)?$"
+    },
+    {
+      "page": "/admin/interest-submissions",
+      "regex": "^/admin/interest\\-submissions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/interest\\-submissions(?:/)?$"
     },
     {
       "page": "/admin/login",
@@ -191,6 +205,12 @@
       "namedRegex": "^/api/admin/impact\\-stats(?:/)?$"
     },
     {
+      "page": "/api/admin/interest-submissions",
+      "regex": "^/api/admin/interest\\-submissions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/interest\\-submissions(?:/)?$"
+    },
+    {
       "page": "/api/admin/milestones",
       "regex": "^/api/admin/milestones(?:/)?$",
       "routeKeys": {},
@@ -215,10 +235,28 @@
       "namedRegex": "^/api/admin/team\\-members(?:/)?$"
     },
     {
+      "page": "/api/contact-submissions",
+      "regex": "^/api/contact\\-submissions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/contact\\-submissions(?:/)?$"
+    },
+    {
+      "page": "/api/interest-submissions",
+      "regex": "^/api/interest\\-submissions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/interest\\-submissions(?:/)?$"
+    },
+    {
       "page": "/api/revalidate",
       "regex": "^/api/revalidate(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/revalidate(?:/)?$"
+    },
+    {
+      "page": "/api/upload",
+      "regex": "^/api/upload(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/upload(?:/)?$"
     },
     {
       "page": "/contact",

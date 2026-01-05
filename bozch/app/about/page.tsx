@@ -23,53 +23,53 @@ export default async function AboutPage() {
     coreValues.length > 0
       ? coreValues
       : [
-          {
-            id: 1,
-            icon: "users",
-            title: "Community Empowerment",
-            description: "We believe in empowering communities to drive their own development",
-          },
-          {
-            id: 2,
-            icon: "lightbulb",
-            title: "Innovation & Learning",
-            description: "Continuously improving through innovation and shared knowledge",
-          },
-          {
-            id: 3,
-            icon: "heart",
-            title: "Equity & Inclusion",
-            description: "Ensuring equal opportunities and inclusive participation for all",
-          },
-          {
-            id: 4,
-            icon: "shield-check",
-            title: "Integrity & Accountability",
-            description: "Operating with transparency and accountability in all our actions",
-          },
-          {
-            id: 5,
-            icon: "handshake",
-            title: "Collaboration",
-            description: "Building strong partnerships to amplify our collective impact",
-          },
-          {
-            id: 6,
-            icon: "recycle",
-            title: "Sustainability",
-            description: "Designing programs for long-term impact and environmental responsibility",
-          },
-        ]
+        {
+          id: 1,
+          icon: "users",
+          title: "Community Empowerment",
+          description: "We believe in empowering communities to drive their own development",
+        },
+        {
+          id: 2,
+          icon: "lightbulb",
+          title: "Innovation & Learning",
+          description: "Continuously improving through innovation and shared knowledge",
+        },
+        {
+          id: 3,
+          icon: "heart",
+          title: "Equity & Inclusion",
+          description: "Ensuring equal opportunities and inclusive participation for all",
+        },
+        {
+          id: 4,
+          icon: "shield-check",
+          title: "Integrity & Accountability",
+          description: "Operating with transparency and accountability in all our actions",
+        },
+        {
+          id: 5,
+          icon: "handshake",
+          title: "Collaboration",
+          description: "Building strong partnerships to amplify our collective impact",
+        },
+        {
+          id: 6,
+          icon: "recycle",
+          title: "Sustainability",
+          description: "Designing programs for long-term impact and environmental responsibility",
+        },
+      ]
 
   const displayTeam =
     teamMembers.length > 0
       ? teamMembers
       : [
-          { id: 1, name: "Nelson Blackson", role: "Co-founder & Executive Director" },
-          { id: 2, name: "Omega Zambasa", role: "Co-founder & Programs Director" },
-          { id: 3, name: "Mavuto Chintengo", role: "Chairman" },
-          { id: 4, name: "Nelson Nyoloka", role: "Vice Chairman" },
-        ]
+        { id: 1, name: "Nelson Blackson", role: "Co-founder & Executive Director" },
+        { id: 2, name: "Omega Zambasa", role: "Co-founder & Programs Director" },
+        { id: 3, name: "Mavuto Chintengo", role: "Chairman" },
+        { id: 4, name: "Nelson Nyoloka", role: "Vice Chairman" },
+      ]
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -216,10 +216,10 @@ export default async function AboutPage() {
               {displayTeam.map(
                 (member: { id: number; name: string; role: string; image_url?: string }, index: number) => (
                   <ScrollReveal key={member.id} animation="fade-up" delay={index * 80}>
-                    <Card className="border-2 h-full">
+                    <Card className="border-2 h-full overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                       <CardContent className="p-6">
                         <div className="flex flex-col items-center text-center">
-                          <div className="h-20 w-20 rounded-full bg-primary/10 flex items-center justify-center mb-4 overflow-hidden">
+                          <div className="h-24 w-24 rounded-full bg-primary/10 flex items-center justify-center mb-4 overflow-hidden border-2 border-transparent group-hover:border-primary transition-all duration-300 group-hover:scale-110">
                             {member.image_url ? (
                               <img
                                 src={member.image_url || "/placeholder.png"}
@@ -227,10 +227,10 @@ export default async function AboutPage() {
                                 className="h-full w-full object-cover"
                               />
                             ) : (
-                              <Users className="h-10 w-10 text-primary" />
+                              <Users className="h-12 w-12 text-primary" />
                             )}
                           </div>
-                          <h3 className="font-semibold mb-1">{member.name}</h3>
+                          <h3 className="font-semibold mb-1 group-hover:text-primary transition-colors">{member.name}</h3>
                           <p className="text-sm text-muted-foreground">{member.role}</p>
                         </div>
                       </CardContent>

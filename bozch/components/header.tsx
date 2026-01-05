@@ -43,7 +43,7 @@ export function Header() {
 
           <div className="hidden md:flex items-center gap-4">
             <Button asChild variant="default">
-              <Link href="/get-involved">Donate Now</Link>
+              <Link href="/contact">Donate Now</Link>
             </Button>
           </div>
 
@@ -68,7 +68,7 @@ export function Header() {
                 </Link>
               ))}
               <Button asChild className="w-full">
-                <Link href="/get-involved">Donate Now</Link>
+                <Link href="/contact">Donate Now</Link>
               </Button>
             </nav>
           </div>
