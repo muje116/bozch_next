@@ -1,5 +1,5 @@
 var R=require("../../../../chunks/[turbopack]_runtime.js")("server/app/api/admin/hero-slides/route.js")
-R.c("server/chunks/[root-of-the-server]__7eb46f75._.js")
+R.c("server/chunks/[root-of-the-server]__e6cb05ec._.js")
 R.c("server/chunks/lib_auth_ts_22c348a0._.js")
 R.c("server/chunks/node_modules_next_92aaecbe._.js")
 R.c("server/chunks/_8450690e._.js")

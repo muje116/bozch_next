@@ -1133,6 +1133,10 @@
     min-height: calc(var(--spacing) * 16);
   }
 
+  .min-h-\[400px\] {
+    min-height: 400px;
+  }
+
   .min-h-screen {
     min-height: 100vh;
   }
@@ -2182,6 +2186,16 @@
     }
   }
 
+  .bg-secondary\/50 {
+    background-color: var(--secondary);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-secondary\/50 {
+      background-color: color-mix(in oklab, var(--secondary) 50%, transparent);
+    }
+  }
+
   .bg-sidebar {
     background-color: var(--sidebar);
   }
@@ -2791,6 +2805,10 @@
     .text-white\/90 {
       color: color-mix(in oklab, var(--color-white) 90%, transparent);
     }
+  }
+
+  .capitalize {
+    text-transform: capitalize;
   }
 
   .tabular-nums {

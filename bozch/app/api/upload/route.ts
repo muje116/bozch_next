@@ -7,6 +7,7 @@ export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData()
     const file = formData.get("file") as File
+    const folder = (formData.get("folder") as string) || "general"
 
     if (!file) {
       return NextResponse.json({ error: "No file provided" }, { status: 400 })
@@ -31,7 +32,10 @@ export async function POST(request: NextRequest) {
     const filename = `${timestamp}-${Math.random().toString(36).substring(7)}.${extension}`
 
     // Create uploads directory if it doesn't exist
-    const uploadsDir = join(process.cwd(), "public", "uploads", "team")
+    // Use sanitized folder name
+    const sanitizedFolder = folder.replace(/[^a-z0-9]/gi, "_").toLowerCase()
+    const uploadsDir = join(process.cwd(), "public", "uploads", sanitizedFolder)
+
     if (!existsSync(uploadsDir)) {
       await mkdir(uploadsDir, { recursive: true })
     }
@@ -41,7 +45,7 @@ export async function POST(request: NextRequest) {
     await writeFile(filepath, buffer)
 
     // Return the public URL
-    const publicUrl = `/uploads/team/${filename}`
+    const publicUrl = `/uploads/${sanitizedFolder}/${filename}`
 
     return NextResponse.json({ url: publicUrl })
   } catch (error) {

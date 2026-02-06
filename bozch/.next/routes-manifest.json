@@ -69,12 +69,28 @@
       "namedRegex": "^/api/admin/programs/(?<nxtPid>[^/]+?)(?:/)?$"
     },
     {
+      "page": "/api/admin/roles/[id]",
+      "regex": "^/api/admin/roles/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/admin/roles/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
       "page": "/api/admin/team-members/[id]",
       "regex": "^/api/admin/team\\-members/([^/]+?)(?:/)?$",
       "routeKeys": {
         "nxtPid": "nxtPid"
       },
       "namedRegex": "^/api/admin/team\\-members/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/admin/users/[id]",
+      "regex": "^/api/admin/users/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/api/admin/users/(?<nxtPid>[^/]+?)(?:/)?$"
     }
   ],
   "staticRoutes": [
@@ -151,6 +167,12 @@
       "namedRegex": "^/admin/programs(?:/)?$"
     },
     {
+      "page": "/admin/roles",
+      "regex": "^/admin/roles(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/roles(?:/)?$"
+    },
+    {
       "page": "/admin/settings",
       "regex": "^/admin/settings(?:/)?$",
       "routeKeys": {},
@@ -161,6 +183,12 @@
       "regex": "^/admin/team(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/admin/team(?:/)?$"
+    },
+    {
+      "page": "/admin/users",
+      "regex": "^/admin/users(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/users(?:/)?$"
     },
     {
       "page": "/api/admin/auth/login",
@@ -223,6 +251,12 @@
       "namedRegex": "^/api/admin/programs(?:/)?$"
     },
     {
+      "page": "/api/admin/roles",
+      "regex": "^/api/admin/roles(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/roles(?:/)?$"
+    },
+    {
       "page": "/api/admin/settings",
       "regex": "^/api/admin/settings(?:/)?$",
       "routeKeys": {},
@@ -233,6 +267,12 @@
       "regex": "^/api/admin/team\\-members(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/admin/team\\-members(?:/)?$"
+    },
+    {
+      "page": "/api/admin/users",
+      "regex": "^/api/admin/users(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/users(?:/)?$"
     },
     {
       "page": "/api/contact-submissions",
@@ -251,6 +291,12 @@
       "regex": "^/api/revalidate(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/revalidate(?:/)?$"
+    },
+    {
+      "page": "/api/settings",
+      "regex": "^/api/settings(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/settings(?:/)?$"
     },
     {
       "page": "/api/upload",
@@ -281,6 +327,18 @@
       "regex": "^/programs(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/programs(?:/)?$"
+    },
+    {
+      "page": "/robots.txt",
+      "regex": "^/robots\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/robots\\.txt(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
     }
   ],
   "dataRoutes": [],

@@ -30,7 +30,7 @@ export default function AdminLoginPage() {
       })
 
       const data = await response.json()
-console.log(data);
+      console.log(data);
       if (!response.ok) {
         setError(data.error || "Login failed")
         return
@@ -67,7 +67,7 @@ console.log(data);
               <Input
                 id="email"
                 type="email"
-                placeholder="admin@bozch.org"
+                placeholder="user@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required

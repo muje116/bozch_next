@@ -13,10 +13,11 @@ import {
   Settings,
   MessageSquare,
   LogOut,
-  Leaf,
   ChevronLeft,
   ChevronRight,
   UserPlus,
+  Shield,
+  UserCheck,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
@@ -27,10 +28,11 @@ const navItems = [
   { href: "/admin/hero-slides", label: "Hero Slides", icon: ImageIcon },
   { href: "/admin/impact-stats", label: "Impact Stats", icon: BarChart3 },
   { href: "/admin/programs", label: "Programs", icon: FolderKanban },
-  { href: "/admin/team", label: "Team Members", icon: Users },
-  { href: "/admin/milestones", label: "Milestones", icon: Calendar },
+  { href: "/admin/team", label: "Team Members", icon: UserCheck },
   { href: "/admin/messages", label: "Messages", icon: MessageSquare },
   { href: "/admin/interest-submissions", label: "Interest Submissions", icon: UserPlus },
+  { href: "/admin/users", label: "User Management", icon: Users },
+  { href: "/admin/roles", label: "Role Management", icon: Shield },
   { href: "/admin/settings", label: "Settings", icon: Settings },
 ]
 

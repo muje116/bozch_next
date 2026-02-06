@@ -9,9 +9,10 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { MapPin, Mail, Phone } from "lucide-react"
-import { useState } from "react"
+import { MapPin, Mail, Phone, Loader2 } from "lucide-react"
+import { useState, useEffect } from "react"
 import { useToast } from "@/hooks/use-toast"
+import MapComponent from "@/components/map"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -20,8 +21,35 @@ export default function ContactPage() {
     subject: "",
     message: "",
   })
+  const [settings, setSettings] = useState({
+    contact_email: "info@bozchafrica.org",
+    contact_phone: "+265 XXX XXX XXX",
+    contact_address: "Limbe, Blantyre, Malawi",
+  })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isLoadingSettings, setIsLoadingSettings] = useState(true)
   const { toast } = useToast()
+
+  useEffect(() => {
+    async function fetchSettings() {
+      try {
+        const response = await fetch("/api/settings")
+        if (response.ok) {
+          const data = await response.json()
+          setSettings({
+            contact_email: data.contact_email || settings.contact_email,
+            contact_phone: data.contact_phone || settings.contact_phone,
+            contact_address: data.contact_address || settings.contact_address,
+          })
+        }
+      } catch (error) {
+        console.error("Error fetching settings:", error)
+      } finally {
+        setIsLoadingSettings(false)
+      }
+    }
+    fetchSettings()
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -76,7 +104,7 @@ export default function ContactPage() {
           <div
             className="absolute inset-0 z-0"
             style={{
-              backgroundImage: "url(/placeholder.png)",
+              backgroundImage: "url(/african-children-clean-water-well-smiling.jpg)",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -107,11 +135,12 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-semibold mb-2">Office Location</h3>
                         <p className="text-sm text-muted-foreground leading-relaxed">
-                          Limbe, Blantyre
-                          <br />
-                          Malawi
-                          <br />
-                          P.O. Box 123
+                          {settings.contact_address.split(", ").map((line, i) => (
+                            <span key={i}>
+                              {line}
+                              <br />
+                            </span>
+                          ))}
                         </p>
                       </div>
                     </div>
@@ -126,7 +155,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h3 className="font-semibold mb-2">Email</h3>
-                        <p className="text-sm text-muted-foreground">info@bozchafrica.org</p>
+                        <p className="text-sm text-muted-foreground">{settings.contact_email}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -140,7 +169,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h3 className="font-semibold mb-2">Phone</h3>
-                        <p className="text-sm text-muted-foreground">+265 XXX XXX XXX</p>
+                        <p className="text-sm text-muted-foreground">{settings.contact_phone}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -225,10 +254,14 @@ export default function ContactPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-balance">Find Us</h2>
-              <div className="aspect-video rounded-lg overflow-hidden border-2">
-                <div className="w-full h-full bg-muted flex items-center justify-center">
-                  <p className="text-muted-foreground">Map: Limbe, Blantyre, Malawi</p>
-                </div>
+              <div className="aspect-video rounded-lg overflow-hidden border-2 bg-muted relative">
+                {isLoadingSettings ? (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                  </div>
+                ) : (
+                  <MapComponent address={settings.contact_address} />
+                )}
               </div>
             </div>
           </div>

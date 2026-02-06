@@ -6,6 +6,8 @@ export async function GET() {
   try {
     const session = await getSession()
 
+    console.log("Session in /api/admin/auth/me:", session)
+
     if (!session) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
