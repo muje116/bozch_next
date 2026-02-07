@@ -97,8 +97,7 @@ export default function AdminLoginPage() {
               )}
             </Button>
           </form>
-          <p className="mt-6 text-center text-sm text-muted-foreground">
-            Default credentials: admin@bozch.org / admin123
+          <p className="mt-6 text-center text-sm text-muted-foreground">           
           </p>
         </CardContent>
       </Card>
